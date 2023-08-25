@@ -278,11 +278,11 @@ void Polynomial::CarGoStraight() {
 //绘制直行规划线轨迹
 void Polynomial::showAheadTrack() {
 	glBegin(GL_POINTS);
-	glColor3f(0.f, 0.f, 0.8f); // R,G,B
+	glColor3f(1.0, 1.0f, 0.f); // R,G,B
 	Point pt = road.car->p0;
 	for (int i = 0; i < 50; i++) {
 		pt.y += disAhead;
-		glVertex3f(pt.x, pt.y, 3);
+		glVertex3f(pt.x, pt.y, 5);
 	}
 	glEnd();	// 结束绘图
 }
@@ -327,9 +327,9 @@ void Polynomial::showTurningTrack(int trackIndex) {
 		return;
 	}
 	glBegin(GL_POINTS);
-	glColor3f(0.f, 0.f, 1.0f); // R,G,B
+	glColor3f(1.0f, 1.0f, 0.f); // R,G,B
 	for (int i = trackIndex; i < trackPoints.size(); ++i) {
-		glVertex3f(trackPoints.at(i).x, trackPoints.at(i).y, 3);
+		glVertex3f(trackPoints.at(i).x, trackPoints.at(i).y, 5);
 	}
 	glEnd();	// 结束绘图
 }
@@ -488,19 +488,19 @@ int main() {
 
         // draw the original axis
 		glLineWidth(3);
-		glColor3f(0.8f, 0.f, 0.f); // R,G,B
 		glBegin(GL_LINES);
 		// x
+		glColor3f(0.8f, 0.f, 0.f); // R,G,B
 		glVertex3f(0, 0, 0);
-		glVertex3f(10, 0, 0);
-		glColor3f(0.f, 0.8f, 0.f);
+		glVertex3f(50, 0, 0);
 		// y
+		glColor3f(0.f, 0.8f, 0.f);
 		glVertex3f(0, 0, 0);
-		glVertex3f(0, 10, 0);
-		glColor3f(0.2f, 0.2f, 1.f);
+		glVertex3f(0, 50, 0);
 		// z
+		glColor3f(0.2f, 0.2f, 1.f);
 		glVertex3f(0., 0., 0.);
-		glVertex3f(0., 0., 10.);
+		glVertex3f(0., 0., 50.);
 		glEnd();
 
 		poly.process();
